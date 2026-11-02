@@ -60,3 +60,4 @@ document.getElementById("keep").onclick=()=>choose("保留");document.getElement
 document.addEventListener("keydown",e=>{if(e.target.matches("textarea,input"))return;if(e.key==="ArrowRight")choose("保留");if(e.key==="ArrowLeft")choose("跳过")});
 const card=document.getElementById("card");let sx=0,sy=0;card.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});card.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.2){card.style.transform="translateX("+(dx>0?"28px":"-28px")+")";card.style.opacity=".7";setTimeout(()=>{card.style.transform="";card.style.opacity="";choose(dx>0?"保留":"跳过")},130)}},{passive:true});render();
 </script></body></html>
+
