@@ -16,8 +16,8 @@
 <body>
 <div class="shell">
 <header class="nav"><div class="brand"><span class="brand-mark">✳</span>AI 机会诊断</div><div class="nav-right">轻松选场景 · 生成企业诊断</div></header>
-<section class="hero"><div><div class="eyebrow">从真实工作开始</div><h1>AI 能帮上哪些忙？</h1><p>看一个工作场景，判断它值不值得先试。右滑保留，左滑跳过；也可以直接点按钮。</p></div><span class="hero-note">样板版 · 4 个场景</span></section>
-<div class="summary"><div class="counter"><strong id="n-keep">0</strong><span>已保留</span></div><div class="counter"><strong id="n-skip">0</strong><span>已跳过</span></div><div class="counter"><strong id="n-left">4</strong><span>还没看</span></div></div>
+<section class="hero"><div><div class="eyebrow">从真实工作开始</div><h1>AI 能帮上哪些忙？</h1><p>看一个工作场景，判断它值不值得先试。右滑保留，左滑跳过；也可以直接点按钮。</p></div><span class="hero-note">完整清单 · 85 个场景</span></section>
+<div class="summary"><div class="counter"><strong id="n-keep">0</strong><span>已保留</span></div><div class="counter"><strong id="n-skip">0</strong><span>已跳过</span></div><div class="counter"><strong id="n-left">85</strong><span>还没看</span></div></div>
 <div class="work">
 <aside class="side"><h2>先看哪个工作</h2><div class="departments" id="departments"></div></aside>
 <main class="stage"><div class="stage-top"><div class="progress" id="progress"></div><input class="search" id="search" placeholder="搜一个场景"></div><article class="panel card" id="card"></article><div class="actions"><button class="action skip" id="skip">← 跳过</button><button class="action keep" id="keep">保留 →</button></div><div class="keyboard">桌面上可按 ← / → · 手机左右滑动卡片</div><div class="toolbar"><button class="smallbtn" id="undo">撤销上一步</button><button class="smallbtn" id="clear">重新开始</button></div><textarea id="note" class="note" placeholder="可选：写下你公司的实际情况"></textarea></main>
@@ -60,4 +60,5 @@ document.getElementById("keep").onclick=()=>choose("保留");document.getElement
 document.addEventListener("keydown",e=>{if(e.target.matches("textarea,input"))return;if(e.key==="ArrowRight")choose("保留");if(e.key==="ArrowLeft")choose("跳过")});
 const card=document.getElementById("card");let sx=0,sy=0;card.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY},{passive:true});card.addEventListener("touchend",e=>{const dx=e.changedTouches[0].clientX-sx,dy=e.changedTouches[0].clientY-sy;if(Math.abs(dx)>65&&Math.abs(dx)>Math.abs(dy)*1.2){card.style.transform="translateX("+(dx>0?"28px":"-28px")+")";card.style.opacity=".7";setTimeout(()=>{card.style.transform="";card.style.opacity="";choose(dx>0?"保留":"跳过")},130)}},{passive:true});render();
 </script></body></html>
+
 
